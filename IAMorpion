@@ -35,7 +35,7 @@ T_branche arbre1[9];
 
 for (i=1;i<9;i++) {
     retour = explore(i,1,&arbre1[i]);
-    ]
+    }
 
 //Définition de la fonction qui modifie le tableau, vérifie les issus *pour l'instant elle fait rien*
 int explore(int case_tab, int joueur, char *tab){
@@ -46,27 +46,28 @@ int explore(int case_tab, int joueur, char *tab){
       carre_magique[case] = indiceCarre[case]*joueur;
       //Si aucune issue n'est trouvé
       if(issue==0){
+       //Cherche les cases libres
           for(i=1;i<9;i++){
               retour = test_case(i);
               if(retour == 0) compte++;
           }
-          monTableau = (T_branche*) malloc (compte*sizeof(T_branche));
+          monTableau = (T_branche*) malloc (compte*sizeof(T_branche)); //Création d'un tableau à nombre de cases variables
           //Tant qu'il reste des cases libres :
           for(i=1;i<;i++){
               retour = test_case(i);
               if(retour==0){
                   (monTableau+j)->caseSuivante = i;
-                  retour = explore(i,-joueur,monTableau+j);
+                  retour = explore(i,-joueur,monTableau+j); // Lance l'exploration de la case choisie en changeant de joueur
               }
           for(i=1;i<9;i++){
-              somme = somme + (monTableau+j)->somme;
+              somme = somme + (monTableau+j)->somme; //Calcul somme ramification
           }
           branche ->somme = somme;
           branche ->brancheSuivante = monTableau;
           retour = 0;
           }
           else retour = issue;
-          carre_magique[case]=0;
+          carre_magique[case]=0; //Remise à zero de la case modifiée
           return retour;
       }
 }
