@@ -38,7 +38,7 @@ for (i=1;i<9;i++) {
     retour = explore(i,1,&arbre1[i]);
     }
 
-//Définition de la fonction qui modifie le tableau, vérifie les issus *pour l'instant elle fait rien*
+//Définition de la fonction qui modifie le tableau, vérifie les issues
 int explore(int case_tab, int joueur, char *tab){
     T_branche* monTableau;
     int compte = 0;
