@@ -70,5 +70,5 @@ int explore(int case_tab, int joueur, char *tab){
           else retour = issue;
           carre_magique[case]=0; //Remise à zero de la case modifiée
            return retour;
-      }
+        }
 }
