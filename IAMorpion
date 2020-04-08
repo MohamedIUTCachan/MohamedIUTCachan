@@ -1,11 +1,9 @@
-#include "projetgl.h"
 
 //Déclaration des variables globales
 short tab1[9] = {1,2,3,4,5,6,7,8,9};
 short carre_magique[9] = {8,1,6,3,5,7,4,9,2};
-int i, indiceCarre;
-short joueur, retour;
-T_branche arbre1[9];
+int i;
+typedef enum T_branche arbre1[9];
 
 //Définition de la fonction qui renvoie à qui appartient une case
 int test_case(carre_magique[i]){
@@ -28,6 +26,14 @@ int test_case_vide(void){
 }
 }
 
+void listesCasesVides(char tab[9]){
+    int i;
+    for(i=0;i<9;i++){
+        if(carre_magique[i]==0) tab[i] = 1;
+        else tab[i] = 0;
+    }
+}
+
 //Définition de la fonction qui affecte une valeur lue au carré magique
 int valeur_carre(i){
     carre_magique[case] = indiceCarre[case]*joueur;
@@ -36,9 +42,9 @@ T_branche arbre1[9];
 
 for (i=1;i<9;i++) {
     retour = explore(i,1,&arbre1[i]);
-    }
+    ]
 
-//Définition de la fonction qui modifie le tableau, vérifie les issues
+//Définition de la fonction qui modifie le tableau, vérifie les issus *pour l'instant elle fait rien*
 int explore(int case_tab, int joueur, char *tab){
     T_branche* monTableau;
     int compte = 0;
@@ -47,28 +53,27 @@ int explore(int case_tab, int joueur, char *tab){
       carre_magique[case] = indiceCarre[case]*joueur;
       //Si aucune issue n'est trouvé
       if(issue==0){
-       //Cherche les cases libres
           for(i=1;i<9;i++){
               retour = test_case(i);
               if(retour == 0) compte++;
           }
-          monTableau = (T_branche*) malloc (compte*sizeof(T_branche)); //Création d'un tableau à nombre de cases variables
+          monTableau = (T_branche*) malloc (compte*sizeof(T_branche));
           //Tant qu'il reste des cases libres :
-          for(i=1;i<;i++){
+          for(i=1;i<9;i++){
               retour = test_case(i);
               if(retour==0){
                   (monTableau+j)->caseSuivante = i;
-                  retour = explore(i,-joueur,monTableau+j); // Lance l'exploration de la case choisie en changeant de joueur
+                  retour = explore(i,-joueur,monTableau+j);
               }
           for(i=1;i<9;i++){
-              somme = somme + (monTableau+j)->somme; //Calcul somme ramification
+              somme = somme + (monTableau+j)->somme;
           }
           branche ->somme = somme;
           branche ->brancheSuivante = monTableau;
           retour = 0;
           }
           else retour = issue;
-          carre_magique[case]=0; //Remise à zero de la case modifiée
-           return retour;
-        }
+          carre_magique[case]=0;
+          return retour;
+      }
 }
