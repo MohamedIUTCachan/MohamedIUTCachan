@@ -160,11 +160,11 @@ int symbole[9] ;
 for(i = 0 ; i<9 ; i++ )
     {
         if(damier[i] > 0)symbole[i] = 1 ;
-        else if (damier[i] < 0)symbole[i] = 2 ;
+        else if (damier[i] < 0)symbole[i] = -1 ;
         else symbole[i] = 0;
     }
 
-printf(" \n|  %1d  |  %d  |  %1d  |\n|  %1d  |  %d  |  %1d  |\n|  %1d  |  %1 d |  %1d  |\n",symbole[0] ,symbole[1] ,symbole[2] ,symbole[3] ,symbole[4] ,symbole[5] ,symbole[6] ,symbole[7] ,symbole[8]) ;
+printf(" \n|  %1d  |  %1d  |  %1d  |\n|  %1d  |  %1d  |  %1d  |\n|  %1d  |  %1d |  %1d  |\n",symbole[0] ,symbole[1] ,symbole[2] ,symbole[3] ,symbole[4] ,symbole[5] ,symbole[6] ,symbole[7] ,symbole[8]) ;
 }
 
 int choix_case(char damier[])
@@ -199,7 +199,7 @@ int main()
                      for(i=0;i<9;i++)
                      {
                          damier_sauvegarde[i] = damier[i] ;
-                         if((case_libre(damier , i) )== 0)                                      
+                         if((case_libre(damier , i) )== 0)
                              {
                                cpt++;
                                tab_0[j] = i ;
